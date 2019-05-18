@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
                     iPChecked = new IPChecked();
                     iPChecked.CountReqvest = 1;
                     iPChecked.Ip = ipReqvesr;
-                    iPChecked.timer = new Timer(tm, iPChecked, 1000*60, Timeout.Infinite);
+                    iPChecked.timer = new Timer(tm, iPChecked, 1000, Timeout.Infinite);
                     iPCheckeds.Add(iPChecked);
                 }
             }
@@ -91,7 +91,7 @@ namespace WindowsFormsApp1
             IPChecked iPChecked = o as IPChecked;
             if (iPChecked != null)
             {
-                if (iPChecked.CountReqvest > 100)
+                if (iPChecked.CountReqvest > 20)
                 {
                     ManagerDAO.AddNewIp(iPChecked.Ip);
                     Loger.WriteLog("Info", "CheckIp", DateTime.Now.ToLongDateString(), iPChecked.Ip, "Ban", "Blocked for many requests");
