@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
@@ -6,7 +7,7 @@ namespace WindowsFormsApp1
     {
         public static void WriteLog(string type, string method, string time, string ip, string status, string info)
         {
-            //txt and .....
+            File.AppendAllText("log.txt", $"|{type}|Method: {method}|Time: {time}|Reqvest ip {ip}|Status: {status}|{info}|\n");
             Console.WriteLine($"|{type}|Method: {method}|Time: {time}|Reqvest ip {ip}|Status: {status}|{info}|");
         }
     }
